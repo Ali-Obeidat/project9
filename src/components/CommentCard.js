@@ -1,6 +1,7 @@
 import faker from '@faker-js/faker'
 import React, { memo } from 'react'
 import Trashcan from '../assets/trashcan.svg'
+import 'semantic-ui-css/semantic.min.css'
 import { projectFirestore } from "../firebase/config"
 
  function CommentCard ({result})  {
@@ -12,9 +13,9 @@ import { projectFirestore } from "../firebase/config"
      
   return (
       <div className="comment">
-           { result.map(comment => (
-               <div>
-                <a className="avatar">
+           { result.comments.map(comment => (
+               <div style={{position: 'relative' ,margin: '10px 0px'}}>
+                <a className="avatar" style={{marginRight: '12px'}}>
                 <img src={faker.image.avatar()} alt="avatar" />
             </a>
             <div className="content">
@@ -28,7 +29,7 @@ import { projectFirestore } from "../firebase/config"
             <form>
 
             </form>
-            <button onClick={() => handleClick(comment.id)}>delete </button>
+            {/* <button onClick={() => handleClick(comment.id)}>delete </button> */}
             <img 
             className="delete"
             onClick={() => handleClick(comment.id)}

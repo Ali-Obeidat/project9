@@ -5,7 +5,7 @@ import { projectFirestore } from '../../firebase/config'
 
 // styles
 import './Recipe.css'
-import  Card  from '../../components/Card'
+import Card from '../../components/Card'
 import Comment from '../../components/Comment'
 import faker from '@faker-js/faker'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
@@ -88,7 +88,7 @@ export default function Recipe() {
 
   return (
     <div>
-      <div className={`recipe ${mode}`}>
+      <div className={`recipe ${mode} container`}>
         {error && <p className="error">{error}</p>}
         {isPending && <p className="loading">Loading...</p>}
         {recipe && (
@@ -102,12 +102,32 @@ export default function Recipe() {
             {/* <button onClick={handleClick}>Update me</button> */}
           </>
         )}
-        {comment && <Card>
-          <Comment
+      </div>
+      <div class="container">
+        
+        {comment && <>
+        <h2 >Comments  </h2>
+        <Card comments={comment}>
+          {/* <Comment
             comments={comment}
-          />
-        </Card>}
-        <form className="form" onSubmit={handleSubmit}>
+          /> */}
+        </Card>
+        </>}
+        <form onSubmit={handleSubmit}>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" onChange={(e) => setName(e.target.value)} value={name} aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Comment</label>
+            <textarea onChange={(e) => setBody(e.target.value)} value={body} type="text" class="form-control" id="exampleInputPassword1"> </textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add comment</button>
+        </form>
+      </div>
+
+      {/* <form className="form" onSubmit={handleSubmit}>
           <input type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
@@ -116,9 +136,9 @@ export default function Recipe() {
             value={body}
             required id="text" name="body" className="form__textarea" placeholder="Add comment"></textarea>
           <button className="form__btn">Send</button>
-        </form>
+        </form> */}
 
-      </div>
+
     </div>
   )
 }

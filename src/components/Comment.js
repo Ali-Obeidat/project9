@@ -8,10 +8,10 @@ export default function Comment({comments}) {
   return (
     <div className="ui comments">
         
-      <CommentCard
+      {/* <CommentCard
       result= {comments}
       
-      />
+      /> */}
     </div>
   );
 }

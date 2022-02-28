@@ -31,3 +31,13 @@
 .ingredients button {
   margin: 0 0 0 10px;
 }
+form{
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 840px) {
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+}

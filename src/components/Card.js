@@ -1,11 +1,19 @@
 import React, { memo } from 'react'
-
- const Card = (props) => {
+import  CommentCard  from './CommentCard';
+import './card.css'
+ const Card = (comments) => {
     return (
-        <div className="ui cards" style={{padding: "20px 30px 0px 30px"}}>
-            <div className="card">
+        <div className="ui cards" >
+            
+            <div className="card" style={{width: '70%'}}>
                 <div class="content">
-                    {props.children}
+                <div className="ui comments">
+        
+        <CommentCard
+        result= {comments}
+        
+        />
+      </div>
                 </div>
               
             </div>
